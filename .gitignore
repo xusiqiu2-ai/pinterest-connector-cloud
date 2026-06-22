@@ -1,0 +1,7 @@
+.env
+data/
+exports/
+tokens/
+node_modules/
+npm-debug.log*
+.DS_Store
