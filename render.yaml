@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: pinterest-connector-cloud
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    disk:
+      name: app-data
+      mountPath: /var/data
+      sizeGB: 5
+    envVars:
+      - key: PINTEREST_CLIENT_ID
+        sync: false
+      - key: PINTEREST_CLIENT_SECRET
+        sync: false
+      - key: ADMIN_TOKEN
+        generateValue: true
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
